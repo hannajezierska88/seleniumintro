@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import waits.WaitForElement;
 
 
 public class ShoppingCart {
@@ -22,9 +23,11 @@ public class ShoppingCart {
     }
 
 
-    public void goToCheckout(){
+    public CheckoutPage goToCheckout(){
 
+        WaitForElement.waitUnitElementIsVisible(proceedButton);
         proceedButton.click();
         logger.info("Select button Proceed to checkuot");
+        return new CheckoutPage();
     }
 }

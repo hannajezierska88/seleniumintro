@@ -11,18 +11,19 @@ public class Order extends TestBase {
     public void angelFishOrderTest(){
 
         LandingPage landingPage = new LandingPage();
-        MainMenu mainMenu = new MainMenu();
-        FishPage fishPage = new FishPage();
-        AngelfishPage angelfishPage = new AngelfishPage();
-        ShoppingCart shoppingCart = new ShoppingCart();
-        LogInPage logInPage = new LogInPage();
+       MainMenu mainMenu = new MainMenu();
+       // FishPage fishPage = new FishPage();
+       // AngelfishPage angelfishPage = new AngelfishPage();
+       // ShoppingCart shoppingCart = new ShoppingCart();
+       LogInPage logInPage = new LogInPage();
 
 
         landingPage.clickOnStoreLink();
-        mainMenu.selectFish();
-        fishPage.selectAngelFish();
-        angelfishPage.selectSmallAngelFish();
-        shoppingCart.goToCheckout();
+        mainMenu.selectFish()
+                .selectAngelFish()
+                .selectSmallAngelFish()
+                .goToCheckout();
+
         String warningMessage = logInPage.checkWarningMsg();
         assertEquals(warningMessage, "You must sign on before attempting to check out. Please sign on and try checking out again.");
 

@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import waits.WaitForElement;
 
 public class FishPage {
 
@@ -22,9 +23,11 @@ public class FishPage {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public void selectAngelFish(){
+    public AngelfishPage selectAngelFish(){
 
+        WaitForElement.waitUnitElementIsVisible(angelFish);
         angelFish.click();
         logger.info("Select AngelFish");
+        return new AngelfishPage();
     }
 }

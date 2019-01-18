@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import waits.WaitForElement;
 
 public class AngelfishPage {
 
@@ -19,10 +20,12 @@ public class AngelfishPage {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public void selectSmallAngelFish(){
+    public ShoppingCart selectSmallAngelFish(){
 
+        WaitForElement.waitUnitElementIsVisible(smallAngelFish);
         smallAngelFish.click();
         logger.info("Select small AngelFish to the cart");
+        return new ShoppingCart();
 
     }
 }
